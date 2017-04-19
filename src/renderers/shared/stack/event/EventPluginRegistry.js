@@ -50,6 +50,10 @@ function recomputePluginOrdering(): void {
     return;
   }
   for (var pluginName in namesToPlugins) {
+    if (!namesToPlugins.hasOwnProperty(pluginName)) {
+      continue;
+    }
+
     var pluginModule = namesToPlugins[pluginName];
     var pluginIndex = eventPluginOrder.indexOf(pluginName);
     invariant(
